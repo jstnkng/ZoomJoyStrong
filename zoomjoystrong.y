@@ -77,6 +77,9 @@ end: END END_STATEMENT
 	return (0);}; 
 
 %%
+
+FILE* yyin;
+
 int main(int argc, char** argv){
 	if (argc != 2)
 	{
@@ -84,7 +87,7 @@ int main(int argc, char** argv){
   		printf("\nEnter a command:\npoint x y;\nline x1 y1 x2 y2;\ncircle x y r;\nrectangle x y w h;\nset_color r g b;\nend;\n\n");
 	}
  	setup();
-	FILE *yyin = fopen(argv[1], "r");
+	yyin = fopen(argv[1], "r");
   	yyparse();
   	printf("Program ended.\n");
   	return 0;
